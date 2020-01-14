@@ -14,6 +14,7 @@ In the feature, I will record the links shared by each member and randomly selec
 But I have no plans to be MORE smart recently...\n
 You can view this site to know ME and contribute to ME.\n
 https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0
+https://github.com/tocatss/frontBot
 `;
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage(async (context, next) => {
