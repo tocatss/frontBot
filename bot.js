@@ -21,7 +21,17 @@ https://github.com/tocatss/frontBot
             // Read UserState. If the 'DidBotWelcomedUser' does not exist (first time ever for a user)
             // set the default to false.
             const userName = context.activity.from.name;
-            const text = context.activity.text.toLowerCase().trim();
+            // Replace mentionMsg with ""
+            let text = context.activity.text;
+            if (context.activity.entities) {
+                context.activity.entities.entities
+                    .filter(entity => entity.type === 'mention')
+                    .forEach(entity => {
+                        text = text.replace(entity.text, '');
+                    });
+            }
+            text = text.toLowerCase().trim();
+
             switch (text) {
             case 'intro':
                 await context.sendActivity(this.generateWelcomeMsg(userName));
